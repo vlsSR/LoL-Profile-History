@@ -1,5 +1,7 @@
 package model;
 
+import com.google.gson.Gson;
+
 public class APICalls {
     private final RiotAPIHandler handler;
 
@@ -21,5 +23,19 @@ public class APICalls {
         }
 
         return null;
+    }
+
+    public SummonerDetail getSummonerDetails(String puuid) {
+        String url = "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/"+puuid;
+
+        String jsonResponse = handler.callApi(url);
+
+        if (jsonResponse != null) {
+            Gson gson = new Gson();
+
+            return gson.fromJson(jsonResponse, SummonerDetail.class);
+        }
+        return null;
+
     }
 }
