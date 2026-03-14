@@ -2,8 +2,10 @@ package controller;
 
 import model.*;
 
+import view.Profile;
 import view.Window;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -27,13 +29,23 @@ public class Controller implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(view.getJBsearch())) {
-            generateSummoner();
+            if (view.getJTsummoner().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(view,"Introduce a valid username");
+            } else {
+                Summoner summoner = generateSummoner();
+                Profile profile = new Profile();
+                profile.getPlayerIcon().setImage(profile.getScaledIcon("/icons/"+summoner.getDetails().getProfileIconId()+".png", 200, 200).getImage());
+                profile.getSummonerName().setText(summoner.getSummonerName());
+                profile.getSummonerLevel().setText(String.valueOf(summoner.getDetails().getSummonerLevel()));
+
+            }
+
         }
     }
 
-    private void generateSummoner() {
+    private Summoner generateSummoner() {
         String summonerInput = view.getJTsummoner().getText();
-        Summoner summoner = new Summoner();
+        Summoner summoner;
 
         String[] parts = parseSummonerName(summonerInput);
         String puuid = caller.getPlayerUUID(parts[0], parts[1]);
@@ -50,7 +62,7 @@ public class Controller implements ActionListener{
             summoner = new Summoner(parts[0], detail, leagues.getFirst(), leagues.getLast());
         }
 
-        System.out.println(summoner);
+        return summoner;
     }
 
     public String[] parseSummonerName(String summonerInput) {
@@ -58,5 +70,12 @@ public class Controller implements ActionListener{
         parts[0] = parts[0].trim();
         parts[0] = parts[0].replace(" ", "%20");
         return parts;
+    }
+
+    public String tierConvertor(String tier) {
+        switch (tier) {
+            //if (tier.equals())
+        }
+        return null;
     }
 }
