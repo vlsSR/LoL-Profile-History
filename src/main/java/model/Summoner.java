@@ -6,15 +6,33 @@ public class Summoner {
     private League soloQ;
     private League flexQ;
 
+    public Summoner() {
+    }
+
     public Summoner(String summonerName) {
         this.summonerName = summonerName;
     }
 
     public Summoner(String summonerName, SummonerDetail details, League soloQ, League flexQ) {
-        this.summonerName = summonerName;
+        this.summonerName = summonerName.replace("%20", " ");
         this.details = details;
         this.soloQ = soloQ;
         this.flexQ = flexQ;
+    }
+
+    public Summoner(String summonerName, SummonerDetail details, League league) {
+        this.summonerName = summonerName.replace("%20", " ");
+        this.details = details;
+        if (league.getQueueType().equals("RANKED_SOLO_5x5")) {
+            this.soloQ = league;
+        } else {
+            this.flexQ = league;
+        }
+    }
+
+    public Summoner(String summonerName, SummonerDetail details) {
+        this.summonerName = summonerName.replace("%20", " ");
+        this.details = details;
     }
 
     public String getSummonerName() {
@@ -46,7 +64,19 @@ public class Summoner {
         return details;
     }
 
+
+
     public void setDetails(SummonerDetail details) {
         this.details = details;
+    }
+
+    @Override
+    public String toString() {
+        return "Summoner{" +
+                "summonerName='" + summonerName + '\'' +
+                ", details=" + details +
+                ", soloQ=" + soloQ +
+                ", flexQ=" + flexQ +
+                '}';
     }
 }

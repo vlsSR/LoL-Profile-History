@@ -2,6 +2,11 @@ package model;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class APICalls {
     private final RiotAPIHandler handler;
 
@@ -34,6 +39,24 @@ public class APICalls {
             Gson gson = new Gson();
 
             return gson.fromJson(jsonResponse, SummonerDetail.class);
+        }
+        return null;
+
+    }
+
+    public List<League> getSummonerLeague(String puuid) {
+        String url = "https://euw1.api.riotgames.com/lol/league/v4/entries/by-puuid/"+puuid;
+
+        String jsonResponse = handler.callApi(url);
+
+        if (jsonResponse != null) {
+            Gson gson = new Gson();
+            League[] leagues = gson.fromJson(jsonResponse, League[].class);
+
+            List<League> leaguesList = Arrays.asList(leagues);
+            Collections.sort(leaguesList);
+
+            return leaguesList;
         }
         return null;
 

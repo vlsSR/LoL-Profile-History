@@ -1,28 +1,28 @@
 package model;
 
-public class League {
-    private String type;
+public class League implements Comparable<League>{
+    private String queueType;
     private String tier;
     private String rank;
-    private int lp;
+    private int leaguePoints;
     private int wins;
     private int losses;
 
-    public League(String type, String tier, String rank, int lp, int wins, int losses) {
-        this.type = type;
+    public League(String queueType, String tier, String rank, int leaguePoints, int wins, int losses) {
+        this.queueType = queueType;
         this.tier = tier;
         this.rank = rank;
-        this.lp = lp;
+        this.leaguePoints = leaguePoints;
         this.wins = wins;
         this.losses = losses;
     }
 
-    public String getType() {
-        return type;
+    public String getQueueType() {
+        return queueType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setQueueType(String queueType) {
+        this.queueType = queueType;
     }
 
     public String getTier() {
@@ -41,12 +41,12 @@ public class League {
         this.rank = rank;
     }
 
-    public int getLp() {
-        return lp;
+    public int getLeaguePoints() {
+        return leaguePoints;
     }
 
-    public void setLp(int lp) {
-        this.lp = lp;
+    public void setLeaguePoints(int leaguePoints) {
+        this.leaguePoints = leaguePoints;
     }
 
     public int getWins() {
@@ -63,5 +63,22 @@ public class League {
 
     public void setLosses(int losses) {
         this.losses = losses;
+    }
+
+    @Override
+    public String toString() {
+        return "League{" +
+                "queueType='" + queueType + '\'' +
+                ", tier='" + tier + '\'' +
+                ", rank='" + rank + '\'' +
+                ", leaguePoints=" + leaguePoints +
+                ", wins=" + wins +
+                ", losses=" + losses +
+                '}';
+    }
+
+    @Override
+    public int compareTo(League o) {
+        return o.queueType.compareTo(this.queueType);
     }
 }
