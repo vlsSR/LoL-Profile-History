@@ -35,6 +35,12 @@ public class Summoner {
         this.details = details;
     }
 
+    public int getLeagueCount() {
+        if (soloQ == null && flexQ == null) return 0;
+        else if (soloQ == null || flexQ == null) return 1;
+        else return 2;
+    }
+
     public String getSummonerName() {
         return summonerName;
     }
@@ -63,6 +69,7 @@ public class Summoner {
     public SummonerDetail getDetails() {
         return details;
     }
+
 
 
 

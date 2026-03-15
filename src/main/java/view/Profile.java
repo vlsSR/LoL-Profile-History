@@ -32,15 +32,15 @@ public class Profile extends JFrame{
         gbc.gridy = 1;
         flexq.add(JLflexqIcon, gbc);
 
-        flexqRank = new JLabel("Silver IV");
+        flexqRank = new JLabel("Unranked");
         gbc.gridy = 2;
         flexq.add(flexqRank, gbc);
 
-        flexqResults = new JLabel("W: 56 L: 12");
+        flexqResults = new JLabel("W: 0 L: 0");
         gbc.gridy = 3;
         flexq.add(flexqResults, gbc);
 
-        flexqWinrate = new JLabel("WR: 84%");
+        flexqWinrate = new JLabel("WR: ?");
         gbc.gridy = 4;
         flexq.add(flexqWinrate, gbc);
         flexq.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
@@ -63,15 +63,15 @@ public class Profile extends JFrame{
         gbc.gridy = 1;
         soloq.add(JLsoloqIcon, gbc);
 
-        soloqRank = new JLabel("Silver IV");
+        soloqRank = new JLabel("Unranked");
         gbc.gridy = 2;
         soloq.add(soloqRank, gbc);
 
-        soloqResults = new JLabel("W: 56 L: 12");
+        soloqResults = new JLabel("W: 0 L: 0");
         gbc.gridy = 3;
         soloq.add(soloqResults, gbc);
 
-        soloqWinrate = new JLabel("WR: 84%");
+        soloqWinrate = new JLabel("WR: ?");
         gbc.gridy = 4;
         soloq.add(soloqWinrate, gbc);
         soloq.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
