@@ -102,7 +102,7 @@ public class Profile extends JFrame{
 
     public void initScreen() {
         setSize(1000, 700);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         setLayout(new BorderLayout());
         setVisible(true);
         setTitle("Profile");

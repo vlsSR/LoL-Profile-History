@@ -25,7 +25,7 @@ public class RiotAPIHandler {
                 return response.body();
             } else {
                 System.out.println("Error: Código de estado " + response.statusCode());
-                return null;
+                return String.valueOf(response.statusCode());
             }
         } catch (Exception e) {
             e.printStackTrace();
