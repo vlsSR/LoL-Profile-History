@@ -22,14 +22,11 @@ public class APICalls {
 
         if (jsonResponse.equals("404")) return "404";
 
-        if (jsonResponse != null) {
-            int start = jsonResponse.indexOf("\"puuid\":\"") + 9;
-            int end = jsonResponse.indexOf("\"", start);
+        int start = jsonResponse.indexOf("\"puuid\":\"") + 9;
+        int end = jsonResponse.indexOf("\"", start);
 
-            return jsonResponse.substring(start, end);
-        }
+        return jsonResponse.substring(start, end);
 
-        return null;
     }
 
     public SummonerDetail getSummonerDetails(String puuid) throws com.google.gson.JsonSyntaxException {
@@ -37,14 +34,11 @@ public class APICalls {
 
         String jsonResponse = handler.callApi(url);
 
-        if (jsonResponse != null) {
-            Gson gson = new Gson();
+        if (jsonResponse == null) return null;
 
+        Gson gson = new Gson();
 
-            return gson.fromJson(jsonResponse, SummonerDetail.class);
-
-        }
-        return null;
+        return gson.fromJson(jsonResponse, SummonerDetail.class);
 
     }
 
@@ -53,16 +47,14 @@ public class APICalls {
 
         String jsonResponse = handler.callApi(url);
 
-        if (jsonResponse != null) {
-            Gson gson = new Gson();
-            League[] leagues = gson.fromJson(jsonResponse, League[].class);
+        if (jsonResponse == null) return null;
+        Gson gson = new Gson();
+        League[] leagues = gson.fromJson(jsonResponse, League[].class);
 
-            List<League> leaguesList = Arrays.asList(leagues);
-            Collections.sort(leaguesList);
+        List<League> leaguesList = Arrays.asList(leagues);
+        Collections.sort(leaguesList);
 
-            return leaguesList;
-        }
-        return null;
+        return leaguesList;
 
     }
 }

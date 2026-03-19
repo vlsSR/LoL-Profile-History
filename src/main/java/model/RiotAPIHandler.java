@@ -6,12 +6,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class RiotAPIHandler {
-    private final String API_KEY = APIKEY.MY_KEY;
-    private final HttpClient client = HttpClient.newHttpClient();
 
     public String callApi(String url) {
         HttpClient client = HttpClient.newHttpClient();
 
+        String API_KEY = APIKEY.MY_KEY;
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("X-Riot-Token", API_KEY)
@@ -21,14 +20,14 @@ public class RiotAPIHandler {
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            if (response.statusCode() == 200) {
-                return response.body();
-            } else {
+            if (response.statusCode() != 200) {
                 System.out.println("Error: Código de estado " + response.statusCode());
                 return String.valueOf(response.statusCode());
             }
+
+            return response.body();
+
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }

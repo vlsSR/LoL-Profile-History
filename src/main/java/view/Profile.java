@@ -7,7 +7,6 @@ import java.net.URL;
 public class Profile extends JFrame{
     private ImageIcon playerIcon, soloqIcon, flexqIcon;
     private JLabel summonerName, summonerLevel, soloqRank, soloqResults, soloqWinrate, flexqRank, flexqResults, flexqWinrate, JLplayerIcon, JLsoloqIcon, JLflexqIcon, JLflexq, JLsoloq;
-    private JButton back;
     private JPanel details, soloq, flexq;
     public Profile() {
         initDetails();
@@ -127,87 +126,54 @@ public class Profile extends JFrame{
         return playerIcon;
     }
 
-    public void setPlayerIcon(ImageIcon playerIcon) {
-        this.playerIcon = playerIcon;
-    }
 
     public ImageIcon getSoloqIcon() {
         return soloqIcon;
     }
 
-    public void setSoloqIcon(ImageIcon soloqIcon) {
-        this.soloqIcon = soloqIcon;
-    }
 
     public ImageIcon getFlexqIcon() {
         return flexqIcon;
     }
 
-    public void setFlexqIcon(ImageIcon flexqIcon) {
-        this.flexqIcon = flexqIcon;
-    }
 
     public JLabel getSummonerName() {
         return summonerName;
     }
 
-    public void setSummonerName(JLabel summonerName) {
-        this.summonerName = summonerName;
-    }
 
     public JLabel getSummonerLevel() {
         return summonerLevel;
     }
 
-    public void setSummonerLevel(JLabel summonerLevel) {
-        this.summonerLevel = summonerLevel;
-    }
 
     public JLabel getSoloqRank() {
         return soloqRank;
     }
 
-    public void setSoloqRank(JLabel soloqRank) {
-        this.soloqRank = soloqRank;
-    }
 
     public JLabel getSoloqResults() {
         return soloqResults;
     }
 
-    public void setSoloqResults(JLabel soloqResults) {
-        this.soloqResults = soloqResults;
-    }
 
     public JLabel getSoloqWinrate() {
         return soloqWinrate;
     }
 
-    public void setSoloqWinrate(JLabel soloqWinrate) {
-        this.soloqWinrate = soloqWinrate;
-    }
 
     public JLabel getFlexqRank() {
         return flexqRank;
     }
 
-    public void setFlexqRank(JLabel flexqRank) {
-        this.flexqRank = flexqRank;
-    }
 
     public JLabel getFlexqResults() {
         return flexqResults;
     }
 
-    public void setFlexqResults(JLabel flexqResults) {
-        this.flexqResults = flexqResults;
-    }
 
     public JLabel getFlexqWinrate() {
         return flexqWinrate;
     }
 
-    public void setFlexqWinrate(JLabel flexqWinrate) {
-        this.flexqWinrate = flexqWinrate;
-    }
 }

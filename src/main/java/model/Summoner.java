@@ -1,17 +1,11 @@
 package model;
 
 public class Summoner {
-    private String summonerName;
-    private SummonerDetail details;
+    private final String summonerName;
+    private final SummonerDetail details;
     private League soloQ;
     private League flexQ;
 
-    public Summoner() {
-    }
-
-    public Summoner(String summonerName) {
-        this.summonerName = summonerName;
-    }
 
     public Summoner(String summonerName, SummonerDetail details, League soloQ, League flexQ) {
         this.summonerName = summonerName.replace("%20", " ");
@@ -45,26 +39,16 @@ public class Summoner {
         return summonerName;
     }
 
-    public void setSummonerName(String summonerName) {
-        this.summonerName = summonerName;
-    }
-
 
     public League getSoloQ() {
         return soloQ;
     }
 
-    public void setSoloQ(League soloQ) {
-        this.soloQ = soloQ;
-    }
 
     public League getFlexQ() {
         return flexQ;
     }
 
-    public void setFlexQ(League flexQ) {
-        this.flexQ = flexQ;
-    }
 
     public SummonerDetail getDetails() {
         return details;
@@ -73,9 +57,6 @@ public class Summoner {
 
 
 
-    public void setDetails(SummonerDetail details) {
-        this.details = details;
-    }
 
     @Override
     public String toString() {

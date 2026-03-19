@@ -6,6 +6,6 @@ public class Main {
     public static void main(String[] args) {
 
         Window view = new Window();
-        Controller controller = new Controller(view);
+        new Controller(view);
     }
 }
